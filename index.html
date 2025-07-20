@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OBS Scene Controller - By Ritesh Verma</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/react@18.2.0/umd/react.production.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@babel/standalone@7.22.9/babel.min.js"></script>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #121212 0%, #1e1e1e 100%);
+      color: #e5e7eb;
+    }
+    .glow {
+      box-shadow: 0 0 20px rgba(0, 255, 156, 0.3);
+    }
+    .section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 4rem 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    const { useState } = React;
+
+    // Navigation Bar Component
+    const Navbar = () => {
+      const [isOpen, setIsOpen] = useState(false);
+
+      return (
+        <nav className="bg-gray-900 shadow-lg fixed w-full z-10">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex justify-between h-16">
+              <div className="flex items-center">
+                <img src="https://i.ibb.co/1J0Mf5Pd/Untitled.jpg" alt="Logo" className="h-10 w-10 mr-2" />
+                <span className="text-2xl font-bold text-green-400">OBS Scene Controller</span>
+              </div>
+              <div className="hidden md:flex items-center space-x-4">
+                <a href="#home" className="text-gray-300 hover:text-green-400">Home</a>
+                <a href="#features" className="text-gray-300 hover:text-green-400">Features</a>
+                <a href="#download" className="text-gray-300 hover:text-green-400">Download</a>
+                <a href="#tutorial" className="text-gray-300 hover:text-green-400">Tutorial</a>
+                <a href="#about" className="text-gray-300 hover:text-green-400">About</a>
+              </div>
+              <div className="md:hidden flex items-center">
+                <button onClick={() => setIsOpen(!isOpen)} className="text-gray-300 focus:outline-none">
+                  <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    {isOpen ? <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /> : <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />}
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+          {isOpen && (
+            <div className="md:hidden">
+              <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home" className="block text-gray-300 hover:text-green-400">Home</a>
+                <a href="#features" className="block text-gray-300 hover:text-green-400">Features</a>
+                <a href="#download" className="block text-gray-300 hover:text-green-400">Download</a>
+                <a href="#tutorial" className="block text-gray-300 hover:text-green-400">Tutorial</a>
+                <a href="#about" className="block text-gray-300 hover:text-green-400">About</a>
+              </div>
+            </div>
+          )}
+        </nav>
+      );
+    };
+
+    // Hero Section Component
+    const Hero = () => (
+      <section id="home" className="section text-center pt-24">
+        <h1 className="text-5xl font-bold text-green-400 mb-4">OBS Scene Controller</h1>
+        <p className="text-xl text-gray-300 mb-6">A powerful tool for managing OBS scenes with real-time previews and remote control.</p>
+        <a href="#download" className="inline-block bg-green-400 text-gray-900 font-semibold py-3 px-6 rounded-lg glow hover:bg-green-500 transition">Get Started</a>
+      </section>
+    );
+
+    // Features Section Component
+    const Features = () => (
+      <section id="features" className="section">
+        <h2 className="text-3xl font-bold text-green-400 mb-6 text-center">Features</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
+            <h3 className="text-xl font-semibold text-green-400 mb-2">Scene Management</h3>
+            <p className="text-gray-300">Easily add, edit, and delete normal and temporary scenes with a user-friendly PySide6 GUI.</p>
+          </div>
+          <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
+            <h3 className="text-xl font-semibold text-green-400 mb-2">Real-Time Previews</h3>
+            <p className="text-gray-300">Stream live scene thumbnails using MSS and Pillow, accessible via Cloudflare tunnels.</p>
+          </div>
+          <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
+            <h3 className="text-xl font-semibold text-green-400 mb-2">Remote Control</h3>
+            <p className="text-gray-300">Control scenes remotely through a Flask-based web interface with secure Cloudflare tunneling.</p>
+          </div>
+          <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
+            <h3 className="text-xl font-semibold text-green-400 mb-2">Hotkey Support</h3>
+            <p className="text-gray-300">Assign custom hotkeys for quick scene switching and temporary scene triggers.</p>
+          </div>
+          <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
+            <h3 className="text-xl font-semibold text-green-400 mb-2">Temporary Scenes</h3>
+            <p className="text-gray-300">Configure scenes with durations for automatic reversion, ideal for overlays.</p>
+          </div>
+          <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
+            <h3 className="text-xl font-semibold text-green-400 mb-2">Cross-Platform</h3>
+            <p className="text-gray-300">Compatible with Windows, macOS, and Linux, with a focus on performance.</p>
+          </div>
+        </div>
+      </section>
+    );
+
+    // Download Section Component
+    const Download = () => (
+      <section id="download" className="section">
+        <h2 className="text-3xl font-bold text-green-400 mb-6 text-center">Download</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="bg-gray-800 p-6 rounded-lg shadow-lg text-center">
+            <h3 className="text-xl font-semibold text-green-400 mb-2">Source Code</h3>
+            <p className="text-gray-300 mb-4">Download the Python source code for both the scene controller and casting scripts.</p>
+            <a href="https://github.com/riteshverma/obs-scene-controller/archive/main.zip" className="inline-block bg-green-400 text-gray-900 font-semibold py-2 px-4 rounded-lg glow hover:bg-green-500 transition">Download Source Code</a>
+          </div>
+          <div className="bg-gray-800 p-6 rounded-lg shadow-lg text-center">
+            <h3 className="text-xl font-semibold text-green-400 mb-2">Executable</h3>
+            <p className="text-gray-300 mb-4">Get the pre-built Windows executable for quick setup.</p>
+            <a href="https://github.com/riteshverma/obs-scene-controller/releases/latest" className="inline-block bg-green-400 text-gray-900 font-semibold py-2 px-4 rounded-lg glow hover:bg-green-500 transition">Download Executable</a>
+          </div>
+          <div className="bg-gray-800 p-6 rounded-lg shadow-lg text-center">
+            <h3 className="text-xl font-semibold text-green-400 mb-2">Scientific Paper</h3>
+            <p className="text-gray-300 mb-4">Read the detailed scientific paper on the OBS Scene Controller.</p>
+            <a href="https://github.com/riteshverma/obs-scene-controller/releases/download/paper/obs_controller_paper.pdf" className="inline-block bg-green-400 text-gray-900 font-semibold py-2 px-4 rounded-lg glow hover:bg-green-500 transition">Download Paper</a>
+          </div>
+        </div>
+        <p className="text-gray-400 text-center mt-4">Note: The executable requires <a href="https://www.cloudflare.com/products/tunnel/" className="text-green-400 hover:underline">Cloudflared</a> installed for tunneling functionality.</p>
+      </section>
+    );
+
+    // Tutorial Section Component
+    const Tutorial = () => (
+      <section id="tutorial" className="section">
+        <h2 className="text-3xl font-bold text-green-400 mb-6 text-center">Tutorial</h2>
+        <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
+          <h3 className="text-xl font-semibold text-green-400 mb-4">Getting Started with OBS Scene Controller</h3>
+          <ol className="list-decimal list-inside text-gray-300 space-y-4">
+            <li>
+              <strong>Install Dependencies</strong>: Ensure Python 3.8+ is installed. Install required libraries:
+              <pre className="bg-gray-900 p-2 rounded mt-2">pip install PySide6 flask obswebsocket keyboard pyperclip mss Pillow</pre>
+            </li>
+            <li>
+              <strong>Install Cloudflared</strong>: Download and install <a href="https://www.cloudflare.com/products/tunnel/" className="text-green-400 hover:underline">Cloudflared</a> for secure tunneling.
+            </li>
+            <li>
+              <strong>Run the Casting Script</strong>: Save the casting script as <code>caster.py</code> and run it:
+              <pre className="bg-gray-900 p-2 rounded mt-2">python caster.py</pre>
+              The Cloudflare tunnel URL will be automatically copied to your clipboard.
+            </li>
+            <li>
+              <strong>Run the Main Script</strong>: Save the main script as <code>obs_controller.py</code> and run it:
+              <pre className="bg-gray-900 p-2 rounded mt-2">python obs_controller.py</pre>
+              Enter your OBS WebSocket IP (default: localhost) and password when prompted. The main script's tunnel URL will also be copied to your clipboard.
+            </li>
+            <li>
+              <strong>Configure Scenes</strong>:
+              <ul className="list-disc list-inside ml-4">
+                <li>Add normal scenes with a name, hotkey (e.g., <code>ctrl+f9</code>), and the tunnel URL from the casting script (available in your clipboard).</li>
+                <li>Add temporary scenes with a name, hotkey, thumbnail image path, and duration (in seconds).</li>
+                <li>Use the Edit and Delete buttons to modify or remove scenes.</li>
+              </ul>
+            </li>
+            <li>
+              <strong>Access the Web Interface</strong>: Open the main script's Cloudflare tunnel URL (copied to your clipboard and displayed in the GUI) in a browser to switch scenes remotely. Normal scenes display live thumbnails, while temporary scenes use static thumbnails.
+            </li>
+            <li>
+              <strong>Use Hotkeys</strong>: Press assigned hotkeys to switch scenes instantly or trigger temporary scenes.
+            </li>
+          </ol>
+          <p className="text-gray-300 mt-4">For the executable, run <code>OBS.exe</code> and ensure <code>logo.png</code> and <code>cloudflared</code> are in the same directory. Tunnel URLs are automatically copied to the clipboard for ease of use.</p>
+        </div>
+      </section>
+    );
+
+    // About Section Component
+    const About = () => (
+      <section id="about" className="section">
+        <h2 className="text-3xl font-bold text-green-400 mb-6 text-center">About</h2>
+        <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
+          <h3 className="text-xl font-semibold text-green-400 mb-2">Overview</h3>
+          <p className="text-gray-300 mb-4">The OBS Scene Controller is a powerful tool developed by Ritesh Verma to streamline OBS scene management and screen casting for content creators. It integrates a PySide6 GUI, Flask web server, and MSS-based screen capture for a seamless live production experience. All Cloudflare tunnel URLs are automatically copied to the clipboard for easy access.</p>
+          <h3 className="text-xl font-semibold text-green-400 mb-2">System Requirements</h3>
+          <ul className="list-disc list-inside text-gray-300 mb-4">
+            <li>Operating System: Windows, macOS, or Linux</li>
+            <li>Python: 3.8 or higher (for source code)</li>
+            <li>Dependencies: PySide6, Flask, obswebsocket, keyboard, pyperclip, MSS, Pillow</li>
+            <li>Cloudflared: Required for tunneling</li>
+            <li>OBS Studio: Version 27.0 or higher with WebSocket enabled</li>
+          </ul>
+          <h3 className="text-xl font-semibold text-green-400 mb-2">Technical Details</h3>
+          <p className="text-gray-300 mb-4">The application uses:
+            <ul className="list-disc list-inside">
+              <li><strong>PySide6</strong> for the GUI, providing a modern interface for scene management.</li>
+              <li><strong>Flask</strong> for the web server, enabling remote control via a browser.</li>
+              <li><strong>OBS WebSocket</strong> for seamless integration with OBS Studio.</li>
+              <li><strong>MSS and Pillow</strong> for efficient screen capture and thumbnail generation.</li>
+              <li><strong>Cloudflare Tunnel</strong> for secure, public access to the web interface and live streams, with URLs automatically copied to the clipboard.</li>
+            </ul>
+          </p>
+          <h3 className="text-xl font-semibold text-green-400 mb-2">Scientific Paper</h3>
+          <p className="text-gray-300 mb-4">A detailed scientific paper describing the system's design and performance is available in the <a href="#download" className="text-green-400 hover:underline">Download</a> section.</p>
+          <h3 className="text-xl font-semibold text-green-400 mb-2">License</h3>
+          <p className="text-gray-300">All rights reserved to Team Emogi. The source code is available under a permissive license for non-commercial use. Contact the author for commercial licensing.</p>
+        </div>
+      </section>
+    );
+
+    // Footer Component
+    const Footer = () => (
+      <footer className="bg-gray-900 py-6 text-center">
+        <p className="text-gray-400">© 2025 Team Emogi. All rights reserved.</p>
+        <p className="text-gray-400 mt-2">Developed by <a href="mailto:vritesh328@gmail.com" className="text-green-400 hover:underline">Ritesh Verma</a></p>
+      </footer>
+    );
+
+    // Main App Component
+    const App = () => (
+      <div>
+        <Navbar />
+        <Hero />
+        <Features />
+        <Download />
+        <Tutorial />
+        <About />
+        <Footer />
+      </div>
+    );
+
+    // Render the App
+    ReactDOM.render(<App />, document.getElementById('root'));
+  </script>
+</body>
+</html>
