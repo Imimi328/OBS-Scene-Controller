@@ -5,7 +5,6 @@ The OBS Scene Controller is a powerful tool developed by Ritesh Verma to streaml
 
 <html>
   <body>
-    const Tutorial = () => (
       <section id="tutorial" className="section">
         <h2 className="text-3xl font-bold text-green-400 mb-6 text-center">Tutorial</h2>
         <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
@@ -47,9 +46,6 @@ The OBS Scene Controller is a powerful tool developed by Ritesh Verma to streaml
         </div>
       </section>
     );
-
-    // About Section Component
-    const About = () => (
       <section id="about" className="section">
         <h2 className="text-3xl font-bold text-green-400 mb-6 text-center">About</h2>
         <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
@@ -79,32 +75,6 @@ The OBS Scene Controller is a powerful tool developed by Ritesh Verma to streaml
           <p className="text-gray-300">All rights reserved to Team Emogi. The source code is available under a permissive license for non-commercial use. Contact the author for commercial licensing.</p>
         </div>
       </section>
-    );
-
-    // Footer Component
-    const Footer = () => (
-      <footer className="bg-gray-900 py-6 text-center">
-        <p className="text-gray-400">© 2025 Team Emogi. All rights reserved.</p>
-        <p className="text-gray-400 mt-2">Developed by <a href="mailto:ritesh@example.com" className="text-green-400 hover:underline">Ritesh Verma</a></p>
-      </footer>
-    );
-
-    // Main App Component
-    const App = () => (
-      <div>
-        <Navbar />
-        <Hero />
-        <Features />
-        <Download />
-        <Tutorial />
-        <About />
-        <Footer />
-      </div>
-    );
-
-    // Render the App
-    ReactDOM.render(<App />, document.getElementById('root'));
-  </script>
 </body>
 </html>
 
