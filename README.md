@@ -10,8 +10,8 @@ The OBS Scene Controller is a powerful tool developed by Ritesh Verma to streaml
 
 <html>
   <body>
-      <section id="OBBSC" className="section">
-        <h2 className="text-3xl font-bold text-green-400 mb-6 text-center">Tutorial</h2>
+      <section id="Tutorial" className="section">
+        <h2 className="text-3xl font-bold text-green-400 mb-6 text-center">OBBSC</h2>
         <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
           <h3 className="text-xl font-semibold text-green-400 mb-4">Getting Started with OBS Scene Controller</h3>
           <ol className="list-decimal list-inside text-gray-300 space-y-4">
