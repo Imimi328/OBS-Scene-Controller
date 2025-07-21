@@ -69,7 +69,7 @@ The OBS Scene Controller is a powerful tool developed by Ritesh Verma to streaml
             </ul>
           </p>
           <h3 className="text-xl font-semibold text-green-400 mb-2">Scientific Paper</h3>
-          <p className="text-gray-300 mb-4">A detailed scientific paper describing the system's design and performance is available in the <a href="#download" className="text-green-400 hover:underline">Download</a> section.</p>
+          <p className="text-gray-300 mb-4">A detailed scientific paper describing the system's design and performance is available in the <a href="https://imimi328.github.io/OBS-Scene-Controller/#download" className="text-green-400 hover:underline">Download</a> section.</p>
           <h3 className="text-xl font-semibold text-green-400 mb-2">License</h3>
           <p className="text-gray-300">All rights reserved to Team Emogi. The source code is available under a permissive license for commercial use.</p>
         </div>
