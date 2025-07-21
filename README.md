@@ -1,7 +1,7 @@
 # OBS-Scene-Controller
 The OBS Scene Controller is a powerful tool developed by Ritesh Verma to streamline OBS scene management and screen casting for content creators. It integrates a PySide6 GUI, Flask web server, and MSS-based screen capture for a seamless live production experience. All Cloudflare tunnel URLs are automatically copied to the clipboard for easy access.
 
-# Know about OBS scene control(Source code, Executable, Scientific paper): <a href="https://imimi328.github.io/OBS-Scene-Controller/" className="text-green-400 hover:underline">Webpage</a>
+# Know about OBS scene control(Source code, Executable, Scientific paper): <a href="https://imimi328.github.io/OBS-Scene-Controller/" className="text-green-400 hover:underline">OBSSC Webpage</a>
 
 <html>
   <body>
@@ -45,7 +45,6 @@ The OBS Scene Controller is a powerful tool developed by Ritesh Verma to streaml
           <p className="text-gray-300 mt-4">For the executable, run <code>OBS.exe</code> and ensure <code>logo.png</code> and <code>cloudflared</code> are in the same directory. Tunnel URLs are automatically copied to the clipboard for ease of use.</p>
         </div>
       </section>
-    );
       <section id="about" className="section">
         <h2 className="text-3xl font-bold text-green-400 mb-6 text-center">About</h2>
         <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
